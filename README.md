@@ -1,54 +1,75 @@
-# React + TypeScript + Vite
+# 🧮 React Counter with Custom Hook
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este proyecto es un contador básico en React utilizando TypeScript y un custom hook llamado `useCounter`. Está diseñado para ser fácilmente reutilizable y extendible.
 
-Currently, two official plugins are available:
+## ✨ Características
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Incrementar y decrementar por valores personalizados.
+- Reiniciar al valor inicial.
+- Tipado estricto con TypeScript.
+- Uso de Bootstrap para estilos rápidos y consistentes.
+- Código modular con separación entre lógica (hook) y UI (componente).
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 📁 Estructura de archivos
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```
+src/
+│
+├── hooks/
+│   └── useCounter.ts       # Hook personalizado con lógica del contador
+│
+├── components/
+│   └── Counter.tsx         # Componente de interfaz que usa el hook
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 📦 Instalación
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+1. Clona el repositorio:
+
+   ```bash
+   git clone https://github.com/tuusuario/react-counter.git
+   cd react-counter
+   ```
+
+2. Instala las dependencias:
+
+   ```bash
+   yarn install
+   ```
+
+3. Ejecuta la aplicación:
+   ```bash
+   yarn dev
+   ```
+
+---
+
+## 🧠 Uso del hook `useCounter`
+
+```ts
+const { counter, handleIncrement, handleDecrement, handleReset } =
+  useCounter(0);
 ```
+
+- `handleIncrement(value: number)` → Incrementa el contador.
+- `handleDecrement(value: number)` → Decrementa el contador.
+- `handleReset()` → Reinicia el contador al valor inicial.
+
+---
+
+## 📌 Requisitos
+
+- React 18+
+- TypeScript
+- Vite o Create React App
+- Bootstrap (opcional, usado para los estilos)
+
+---
+
+## 📄 Licencia
+
+MIT License © 2025 - [Lennin Ibarra]
